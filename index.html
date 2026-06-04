@@ -108,4 +108,24 @@ footer{text-align:center;padding:30px;border-top:1px solid #17304d;margin-top:30
 <footer>
 <p>Powered by Agoeng Wong</p>
 <p id="datetime"></p>
-<p>© 2026 TLH AI 
+<p>© 2026 TLH AI</p>
+</footer>
+
+<script>
+function hitung(){
+let p=parseFloat(document.getElementById('p').value)||0;
+let v=parseFloat(document.getElementById('v').value)||1;
+document.getElementById('hasil').innerHTML="Arus = "+(p/v).toFixed(2)+" A";
+}
+function toggleChat(){
+let c=document.getElementById('chatbox');
+c.style.display=(c.style.display==='block')?'none':'block';
+}
+setInterval(()=>{
+document.getElementById('datetime').innerHTML=
+"Tanggal/Waktu: "+new Date().toLocaleString('id-ID');
+},1000);
+</script>
+
+</body>
+</html>
