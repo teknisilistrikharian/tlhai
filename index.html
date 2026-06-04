@@ -3,128 +3,504 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TLH AI ⚡ - Platform AI Teknisi Listrik Indonesia</title>
-<meta name="description" content="TLH AI - AI Teknisi Listrik Indonesia">
+
+<title>TLH AI ⚡ | AI Teknisi Listrik Indonesia</title>
+
+<meta name="description" content="TLH AI - Google + ChatGPT untuk Teknisi Listrik Indonesia. Troubleshooting Motor, MCCB, PLC, Inverter, Panel dan Trafo.">
+
 <style>
-:root{
---bg:#08111f;--card:#101c30;--text:#fff;--accent:#00cfff;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
-header{position:sticky;top:0;background:#091423ee;padding:15px 30px;border-bottom:1px solid #17304d}
-nav{display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:28px;font-weight:bold;color:var(--accent)}
+
+body{
+background:#04101f;
+color:white;
+}
+
+header{
+background:#071b34;
+padding:20px;
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.logo{
+font-size:32px;
+font-weight:bold;
+color:#00cfff;
+}
+
 .hero{
-min-height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-text-align:center;padding:40px;
-background:radial-gradient(circle,#123 0,#08111f 70%);
+padding:50px 20px;
+text-align:center;
 }
-.hero h1{font-size:72px;color:var(--accent)}
-.hero p{max-width:800px;font-size:20px;margin:20px auto}
-.btn{display:inline-block;background:var(--accent);color:#000;padding:14px 24px;
-text-decoration:none;border-radius:12px;font-weight:bold;margin:10px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:40px}
-.card{background:var(--card);padding:25px;border-radius:16px;box-shadow:0 0 15px #00cfff33}
-.section-title{text-align:center;font-size:36px;padding:30px;color:var(--accent)}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding:40px}
-.stat{background:var(--card);padding:20px;text-align:center;border-radius:16px}
-.chat-btn{
-position:fixed;right:20px;bottom:20px;background:#00cfff;color:#000;
-width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-font-size:30px;font-weight:bold;cursor:pointer}
-.chatbox{
-display:none;position:fixed;right:20px;bottom:90px;width:320px;background:#0e1a2d;
-border:1px solid #00cfff;border-radius:12px;padding:15px}
-input,button{padding:10px}
-.calc input{width:100%;margin:5px 0}
-footer{text-align:center;padding:30px;border-top:1px solid #17304d;margin-top:30px}
-.neon{animation:pulse 2s infinite}
-@keyframes pulse{
-50%{text-shadow:0 0 20px #00cfff}
+
+.hero h1{
+font-size:42px;
+color:#00cfff;
 }
+
+.hero h2{
+margin-top:15px;
+font-weight:normal;
+}
+
+.search-box{
+margin-top:25px;
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.search-box input{
+padding:15px;
+width:350px;
+max-width:95%;
+border:none;
+border-radius:10px;
+}
+
+.search-box button{
+padding:15px 25px;
+background:#00cfff;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.section{
+padding:40px 20px;
+}
+
+.title{
+font-size:30px;
+margin-bottom:20px;
+color:#00cfff;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#0d2242;
+padding:20px;
+border-radius:15px;
+}
+
+.card h3{
+margin-bottom:10px;
+color:#00cfff;
+}
+
+.chat{
+background:#0d2242;
+padding:20px;
+border-radius:15px;
+}
+
+.chat input{
+width:100%;
+padding:12px;
+margin-top:10px;
+}
+
+.chat button{
+margin-top:10px;
+padding:12px 20px;
+background:#00cfff;
+border:none;
+cursor:pointer;
+}
+
+.answer{
+margin-top:15px;
+padding:15px;
+background:#09172b;
+border-radius:10px;
+}
+
+.calc input{
+width:100%;
+padding:12px;
+margin-bottom:10px;
+}
+
+.calc button{
+padding:12px 20px;
+background:#00cfff;
+border:none;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+text-align:center;
+}
+
+.stat{
+background:#0d2242;
+padding:20px;
+border-radius:15px;
+}
+
+footer{
+padding:30px;
+text-align:center;
+background:#071b34;
+margin-top:40px;
+}
+
+a{
+color:#00cfff;
+text-decoration:none;
+}
+
+@media(max-width:768px){
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+.hero h1{
+font-size:30px;
+}
+
+}
+
 </style>
 </head>
+
 <body>
 
 <header>
-<nav>
 <div class="logo">TLH AI ⚡</div>
-<div>AI Teknisi Listrik Indonesia</div>
-</nav>
 </header>
 
 <section class="hero">
-<h1 class="neon">TLH AI ⚡</h1>
-<p>Platform AI Teknisi Listrik Indonesia untuk troubleshooting, maintenance, engineering, edukasi, komunitas dan knowledge base teknisi modern.</p>
-<div>
-<a class="btn" href="https://wa.me/6281390795955">WhatsApp Konsultasi</a>
-<a class="btn" href="https://www.facebook.com/share/g/1BYLWKNKg1/">Facebook Community</a>
+
+<h1>AI Teknisi Listrik Indonesia</h1>
+
+<h2>
+Google + ChatGPT untuk Teknisi Listrik Indonesia
+</h2>
+
+<div class="search-box">
+
+<input
+id="searchInput"
+placeholder="Cari: MCCB Trip, Motor Panas, PLC Error..."
+>
+
+<button onclick="searchKnowledge()">
+Cari Solusi
+</button>
+
 </div>
+
 </section>
 
-<h2 class="section-title">Fitur Unggulan</h2>
-<div class="grid">
-<div class="card">🤖 AI Assistant 24/7</div>
-<div class="card">🔧 Troubleshooting</div>
-<div class="card">🏭 Engineering</div>
-<div class="card">📚 Edukasi Teknisi</div>
-<div class="card">⚡ Kalkulator Listrik</div>
-<div class="card">🗂 Database Pengetahuan</div>
-</div>
+<section class="section">
 
-<h2 class="section-title">Dashboard Artikel</h2>
-<div class="grid">
-<div class="card">Motor 3 Fasa</div>
-<div class="card">Panel LVMDP</div>
-<div class="card">PLC Dasar</div>
-<div class="card">Inverter Industri</div>
-</div>
+<h2 class="title">Statistik TLH AI</h2>
 
-<h2 class="section-title">Kalkulator Listrik</h2>
-<div class="grid">
-<div class="card calc">
-<label>Daya (W)</label><input id="p">
-<label>Tegangan (V)</label><input id="v">
-<button onclick="hitung()">Hitung Arus</button>
-<p id="hasil"></p>
-</div>
-</div>
-
-<h2 class="section-title">Statistik</h2>
 <div class="stats">
-<div class="stat"><h3>10.000+</h3><p>Teknisi</p></div>
-<div class="stat"><h3>5.000+</h3><p>Artikel</p></div>
-<div class="stat"><h3>24/7</h3><p>AI Assistant</p></div>
-<div class="stat"><h3>99.9%</h3><p>Uptime</p></div>
+
+<div class="stat">
+<h2>50.000+</h2>
+<p>Kasus Teknik</p>
 </div>
 
-<div class="chat-btn" onclick="toggleChat()">💬</div>
-<div class="chatbox" id="chatbox">
-<h3>TLH AI Assistant</h3>
-<p>Halo, ada yang bisa saya bantu?</p>
-<input style="width:100%" placeholder="Ketik pertanyaan...">
+<div class="stat">
+<h2>1000+</h2>
+<p>Artikel SEO</p>
 </div>
+
+<div class="stat">
+<h2>24/7</h2>
+<p>AI Assistant</p>
+</div>
+
+<div class="stat">
+<h2>5000+</h2>
+<p>Komunitas</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">TLH AI Assistant</h2>
+
+<div class="chat">
+
+<input
+id="question"
+placeholder="Tanya masalah listrik..."
+>
+
+<button onclick="askTLH()">
+Kirim
+</button>
+
+<div
+id="answer"
+class="answer"
+>
+
+Halo, saya TLH AI ⚡
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">Knowledge Base</h2>
+
+<div id="knowledgeResult"></div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">Artikel Terbaru</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Motor 3 Fasa Cepat Panas</h3>
+<p>Penyebab dan solusi lengkap.</p>
+</div>
+
+<div class="card">
+<h3>MCCB Sering Trip</h3>
+<p>Cara analisa dan troubleshooting.</p>
+</div>
+
+<div class="card">
+<h3>PLC Siemens Error SF</h3>
+<p>Langkah pemeriksaan detail.</p>
+</div>
+
+<div class="card">
+<h3>Inverter Delta OC Alarm</h3>
+<p>Penyebab dan cara reset.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">Kalkulator Arus</h2>
+
+<div class="calc">
+
+<input id="power" placeholder="Daya (W)">
+
+<input id="voltage" placeholder="Tegangan (V)">
+
+<button onclick="calcCurrent()">
+
+Hitung
+
+</button>
+
+<div
+id="result"
+class="answer">
+Hasil akan tampil di sini
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">Komunitas</h2>
+
+<p>
+
+<a href="#">
+WhatsApp Teknisi
+</a>
+
+|
+
+<a href="#">
+Facebook Group TLH
+</a>
+
+</p>
+
+</section>
 
 <footer>
-<p>Powered by Agoeng Wong</p>
+
+<h3>Powered by Agoeng Wong</h3>
+
 <p id="datetime"></p>
-<p>© 2026 TLH AI</p>
+
 </footer>
 
 <script>
-function hitung(){
-let p=parseFloat(document.getElementById('p').value)||0;
-let v=parseFloat(document.getElementById('v').value)||1;
-document.getElementById('hasil').innerHTML="Arus = "+(p/v).toFixed(2)+" A";
+
+const knowledge=[
+
+{
+title:"Motor Panas",
+content:"Penyebab motor panas biasanya overload, bearing rusak, ventilasi buruk atau tegangan tidak seimbang."
+},
+
+{
+title:"MCCB Trip",
+content:"MCCB trip biasanya disebabkan overload, short circuit atau setting proteksi terlalu rendah."
+},
+
+{
+title:"PLC Error",
+content:"Periksa supply PLC, modul input output dan komunikasi PLC."
+},
+
+{
+title:"Inverter Fault",
+content:"Periksa kode alarm inverter, tegangan input dan beban motor."
 }
-function toggleChat(){
-let c=document.getElementById('chatbox');
-c.style.display=(c.style.display==='block')?'none':'block';
+
+];
+
+function searchKnowledge(){
+
+let keyword=
+document
+.getElementById("searchInput")
+.value
+.toLowerCase();
+
+let html="";
+
+knowledge.forEach(item=>{
+
+if(
+item.title.toLowerCase()
+.includes(keyword)
+){
+
+html+=`
+<div class="card">
+<h3>${item.title}</h3>
+<p>${item.content}</p>
+</div>
+`;
+
 }
+
+});
+
+if(html===""){
+
+html="<div class='card'>Data belum ditemukan.</div>";
+
+}
+
+document
+.getElementById(
+"knowledgeResult"
+)
+.innerHTML=html;
+
+}
+
+function askTLH(){
+
+let q=
+document
+.getElementById(
+"question"
+)
+.value
+.toLowerCase();
+
+let answer=
+"Maaf, data belum tersedia.";
+
+knowledge.forEach(item=>{
+
+if(
+q.includes(
+item.title.toLowerCase()
+)
+){
+
+answer=item.content;
+
+}
+
+});
+
+document
+.getElementById(
+"answer"
+)
+innerHTML=answer;
+
+}
+
+function calcCurrent(){
+
+let p=parseFloat(
+document.getElementById("power").value
+);
+
+let v=parseFloat(
+document.getElementById("voltage").value
+);
+
+if(!p || !v) return;
+
+let i=p/v;
+
+document.getElementById(
+"result"
+).innerHTML=
+
+"Arus = "+
+
+i.toFixed(2)+
+
+" A";
+
+}
+
 setInterval(()=>{
-document.getElementById('datetime').innerHTML=
-""+new Date().toLocaleString('id-ID');
+
+document.getElementById(
+"datetime"
+).innerHTML=
+
+new Date()
+.toLocaleString("id-ID");
+
 },1000);
+
 </script>
 
 </body>
